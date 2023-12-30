@@ -1,0 +1,43 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/Floor.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Parquetry.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.5851263976694759 0.5844547865205894 -0.562174084482302 2.1182850175516346
+  position 1.0257016843247586 -1.135117682820379 3.5325561435593316
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Solid {
+  rotation 1 0 0 1.57
+  children [
+    Shape {
+      geometry DEF MAZE_GEO Mesh {
+        url [
+          "../final_maze.stl"
+        ]
+      }
+    }
+  ]
+  name "maze"
+  boundingObject USE MAZE_GEO
+}
+Floor {
+  translation 0 0 0.0019
+  appearance Parquetry {
+    type "dark strip"
+  }
+}
+E-puck {
+  translation 1.46 -0.54 0.01
+  rotation 0 0 1 -1.5707953071795862
+  controller "mouse_floodfill"
+}
